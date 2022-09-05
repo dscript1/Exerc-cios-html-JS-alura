@@ -1,0 +1,37 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+var tela = document.querySelector('canvas');
+var pincel = tela.getContext('2d');
+    
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+    
+    function desenhaCirculo(evento) {
+        
+        //esta função mostrará uma sequência de rastros de onde o mouse irá clicar
+        
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+        
+    }
+    
+    tela.onclick = desenhaCirculo;
+    // esta função direciona à função 'function exibeAlerta' para que, ao clicar no retângulo, exiba o alerta para informar que clicou no retângulo.
+    
+    //agora, veremos algumas condicionais
+    
+     function mudaCor() { 
+
+        alert('Funcionou!');
+        return false;
+    }
+
+    tela.oncontextmenu = mudaCor; //clique com o botão direito
+
+</script>
